@@ -1,5 +1,9 @@
-import { vi, it, expect, describe } from "vitest";
+import { vi, it, expect, describe, afterEach } from "vitest";
 import User from "./users";
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
 
 describe("User Model", () => {
   it("should create a new User", () => {

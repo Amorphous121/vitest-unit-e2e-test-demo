@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { vi, it, expect, describe } from "vitest";
+import { vi, it, expect, describe, afterEach } from "vitest";
 import User from "../models/users";
 import { isAuthenticatedUser } from "./auth";
 
@@ -13,6 +13,10 @@ const mockResponse = () => ({
 });
 
 const mockNext = vi.fn();
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
 
 describe("middlewares/auth.js", () => {
   describe("isAuthenticatedUser()", () => {

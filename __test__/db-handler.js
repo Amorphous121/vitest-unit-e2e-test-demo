@@ -3,9 +3,9 @@ import { config } from "dotenv";
 
 config({ path: ".env.test" });
 
-export const connectDatabase = async () => {
+export const connectDatabase = async (dbName) => {
   mongoose.set("strictQuery", true);
-  return mongoose.connect(process.env.DB_URL);
+  return mongoose.connect(process.env.DB_URL, { dbName });
 };
 
 

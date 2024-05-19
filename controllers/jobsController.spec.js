@@ -1,4 +1,4 @@
-import { it, vi, expect, describe } from "vitest";
+import { it, vi, expect, describe, afterEach } from "vitest";
 import {
   deleteJob,
   getJob,
@@ -27,6 +27,10 @@ const mockRequest = () => ({ query: {}, params: {}, body: {}, user: {} });
 const mockResponse = () => ({
   status: vi.fn().mockReturnThis(),
   json: vi.fn().mockReturnThis(),
+});
+
+afterEach(() => {
+  vi.restoreAllMocks();
 });
 
 describe("controllers/jobsController.js", () => {
@@ -190,7 +194,7 @@ describe("controllers/jobsController.js", () => {
 
     it("should delete the job", async () => {
       vi.spyOn(Job, "findById").mockResolvedValueOnce(mockJob);
-      vi.spyOn(Job, 'findByIdAndDelete').mockResolvedValueOnce(mockJob);
+      vi.spyOn(Job, "findByIdAndDelete").mockResolvedValueOnce(mockJob);
       const mockReq = mockRequest();
       const mockRes = mockResponse();
 

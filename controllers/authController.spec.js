@@ -1,4 +1,4 @@
-import { vi, it, expect, describe } from "vitest";
+import { vi, it, expect, describe, afterEach } from "vitest";
 import bcrypt from "bcryptjs";
 import User from "../models/users";
 import { registerUser, loginUser, test as testCtrl } from "./authController";
@@ -6,6 +6,11 @@ import { registerUser, loginUser, test as testCtrl } from "./authController";
 vi.mock("../utils/helpers", () => ({
   getJwtToken: vi.fn(() => "JWT_TOKEN"),
 }));
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
+
 
 const mockRequest = () => ({
   body: {

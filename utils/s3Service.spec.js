@@ -1,4 +1,4 @@
-import { vi, it, expect, describe } from "vitest";
+import { vi, it, expect, describe, afterEach } from "vitest";
 import { S3Service } from "./s3Service";
 
 vi.mock("aws-sdk", () => {
@@ -18,6 +18,10 @@ vi.mock("aws-sdk", () => {
       }),
     },
   };
+});
+
+afterEach(() => {
+  vi.restoreAllMocks();
 });
 
 describe("Utils/s3Service.js", () => {

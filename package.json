@@ -6,7 +6,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "test": "vitest --reporter verbose",
+    "test": "vitest  --run --reporter verbose",
+    "test:watch": "vitest --reporter verbose",
     "coverage": "vitest --coverage.enabled"
   },
   "author": "",

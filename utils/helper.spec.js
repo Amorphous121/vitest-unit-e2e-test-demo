@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, afterAll } from "vitest";
 
 import { getJwtToken, sendEmail } from "./helpers";
 
@@ -15,6 +15,10 @@ vi.mock("nodemailer", async () => {
       }),
     },
   };
+});
+
+afterAll(() => {
+  vi.restoreAllMocks();
 });
 
 describe("Utils/helper", () => {

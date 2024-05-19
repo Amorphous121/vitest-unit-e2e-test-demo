@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
-import { vi, it, expect, describe } from "vitest";
+import { vi, it, expect, describe, afterEach } from "vitest";
 import connectDatabase from "./database";
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
 
 describe("config/database.js", () => {
   describe("connectDatabase()", () => {

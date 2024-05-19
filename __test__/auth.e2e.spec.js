@@ -3,8 +3,10 @@ import { it, expect, describe, afterAll, beforeAll } from "vitest";
 import app from "../app";
 import { connectDatabase, closeDatabase } from "./db-handler";
 
+const db = Date.now().toString();
+
 beforeAll(() => {
-  connectDatabase();
+  connectDatabase(db);
 });
 
 afterAll(() => {

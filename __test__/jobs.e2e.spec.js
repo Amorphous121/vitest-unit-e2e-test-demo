@@ -19,8 +19,10 @@ let mockJob = {
   postingDate: "2024-05-12T00:00:00.000Z",
 };
 
+const db = Date.now().toString();
+
 beforeAll(async () => {
-  await connectDatabase();
+  await connectDatabase(db);
   const res = await request(app).post("/api/v1/register").send({
     name: "pravin",
     email: "pravin@gmail.com",

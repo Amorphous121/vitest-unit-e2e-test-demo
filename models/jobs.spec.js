@@ -1,6 +1,11 @@
-import { vi, it, expect, describe } from "vitest";
+import { vi, it, expect, describe, afterEach } from "vitest";
 
 import Jobs from "./jobs";
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
+
 
 describe("Jobs Model", () => {
   it("should create new job", () => {
